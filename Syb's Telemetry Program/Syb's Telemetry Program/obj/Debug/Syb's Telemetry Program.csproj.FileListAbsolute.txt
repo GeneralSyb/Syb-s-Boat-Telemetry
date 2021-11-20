@@ -1,0 +1,10 @@
+C:\Users\Radeon\source\repos\Syb's Telemetry Program\Syb's Telemetry Program\bin\Debug\Syb's Telemetry Program.exe.config
+C:\Users\Radeon\source\repos\Syb's Telemetry Program\Syb's Telemetry Program\bin\Debug\Syb's Telemetry Program.exe
+C:\Users\Radeon\source\repos\Syb's Telemetry Program\Syb's Telemetry Program\bin\Debug\Syb's Telemetry Program.pdb
+C:\Users\Radeon\source\repos\Syb's Telemetry Program\Syb's Telemetry Program\obj\Debug\Syb's Telemetry Program.csproj.AssemblyReference.cache
+C:\Users\Radeon\source\repos\Syb's Telemetry Program\Syb's Telemetry Program\obj\Debug\Syb_s_Telemetry_Program.SybsTelemetry.resources
+C:\Users\Radeon\source\repos\Syb's Telemetry Program\Syb's Telemetry Program\obj\Debug\Syb_s_Telemetry_Program.Properties.Resources.resources
+C:\Users\Radeon\source\repos\Syb's Telemetry Program\Syb's Telemetry Program\obj\Debug\Syb's Telemetry Program.csproj.GenerateResource.cache
+C:\Users\Radeon\source\repos\Syb's Telemetry Program\Syb's Telemetry Program\obj\Debug\Syb's Telemetry Program.csproj.CoreCompileInputs.cache
+C:\Users\Radeon\source\repos\Syb's Telemetry Program\Syb's Telemetry Program\obj\Debug\Syb's Telemetry Program.exe
+C:\Users\Radeon\source\repos\Syb's Telemetry Program\Syb's Telemetry Program\obj\Debug\Syb's Telemetry Program.pdb

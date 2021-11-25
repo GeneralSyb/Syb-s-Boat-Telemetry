@@ -42,9 +42,10 @@ namespace Syb_s_Telemetry_Program
             // 
             this.ConsoleWindow.Location = new System.Drawing.Point(648, 12);
             this.ConsoleWindow.Name = "ConsoleWindow";
-            this.ConsoleWindow.Size = new System.Drawing.Size(300, 501);
+            this.ConsoleWindow.Size = new System.Drawing.Size(300, 475);
             this.ConsoleWindow.TabIndex = 4;
             this.ConsoleWindow.Text = "";
+            this.ConsoleWindow.TextChanged += new System.EventHandler(this.ConsoleWindow_TextChanged);
             // 
             // StartSessionButton
             // 

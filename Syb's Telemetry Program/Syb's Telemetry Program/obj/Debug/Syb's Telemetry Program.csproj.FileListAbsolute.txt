@@ -7,4 +7,4 @@ C:\Users\Radeon\source\repos\Syb's Telemetry Program\Syb's Telemetry Program\obj
 C:\Users\Radeon\source\repos\Syb's Telemetry Program\Syb's Telemetry Program\obj\Debug\Syb's Telemetry Program.csproj.CoreCompileInputs.cache
 C:\Users\Radeon\source\repos\Syb's Telemetry Program\Syb's Telemetry Program\obj\Debug\Syb's Telemetry Program.exe
 C:\Users\Radeon\source\repos\Syb's Telemetry Program\Syb's Telemetry Program\obj\Debug\Syb's Telemetry Program.pdb
-C:\Users\Radeon\source\repos\Syb's Telemetry Program\Syb's Telemetry Program\obj\Debug\Syb_s_Telemetry_Program.ENV.resources
+C:\Users\Radeon\source\repos\Syb's Telemetry Program\Syb's Telemetry Program\obj\Debug\Syb_s_Telemetry_Program.SybsTelemetry.resources

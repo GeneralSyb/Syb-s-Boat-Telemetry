@@ -11,10 +11,6 @@ using System.IO.Ports;
 
 namespace Syb_s_Telemetry_Program
 {
-    public static class ENV
-    {
-        public static int bautrate = 11500;
-    }
     
     public partial class SybsTelemetry : Form
     {
@@ -56,45 +52,53 @@ namespace Syb_s_Telemetry_Program
             }
         }
 
-        public async Task ComReceiver()
-        {
-            string lastPort = string.Empty;
-            while (true)
-            {
-                if (ComListBox.SelectedItem != null)
-                {
-                    string selectedPort = ComListBox.SelectedItem.ToString();
-                    if (selectedPort != lastPort && sessionStarted)
-                    {
-                        if (port.IsOpen)
-                        {
-                            port.Close();
-                        }
-                        port.PortName = selectedPort;
-                        port.DataReceived += new SerialDataReceivedEventHandler(port_DataReceived);
-                        port.Open();
-                    }
-                }
-            }
-
-            await Task.Delay(0);
-        }
-
-        private void port_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        private void port_DataReceived(object sender, EventArgs e)
         {
             ConsoleLog($"COMPort Data: {port.ReadExisting()}");
         }
 
-        public void ConsoleLog(string message)
+        private void port_changed(object sender, EventArgs e)
+        {
+            bool validPort = ComListBox.SelectedItem != null;
+            ConsoleLog($"Changed port to: {ComListBox.SelectedItem}, is valid: {validPort}");
+            string lastPort = string.Empty;
+            if (ComListBox.SelectedItem != null)
+            {
+                string selectedPort = ComListBox.SelectedItem.ToString();
+                if (selectedPort != lastPort)
+                {
+                    if (port.IsOpen)
+                    {
+                        ConsoleLog("Port is still open, closing previous port...");
+                        port.Close();
+                    }
+                    ConsoleLog("Setting up port and handler...");
+                    port.PortName = selectedPort;
+                    port.DataReceived += port_DataReceived;
+                    port.Open();
+                }
+            }
+        }
+
+        public void ConsoleLog(string text)
         {
             var console = ConsoleWindow;
-            if (console.Text == "")
+            if (console.InvokeRequired)
             {
-                console.Text = console.Text + message;
+                // Call this same method but append THREAD2 to the text
+                Action safeWrite = delegate { ConsoleLog(text); };
+                console.Invoke(safeWrite);
             }
             else
             {
-                console.Text = console.Text + "\n" + message;
+                if (console.Text == "")
+                {
+                    console.Text = console.Text + text;
+                }
+                else
+                {
+                    console.Text = console.Text + "\n" + text;
+                }
             }
         }
 
@@ -111,7 +115,8 @@ namespace Syb_s_Telemetry_Program
         {
             InitializeComponent();
             ComPortLoop();
-            ComReceiver();
+            //ComReceiver();
+            ComListBox.SelectedValueChanged += port_changed;
         }
 
         private void StartSessionButton_Click(object sender, EventArgs e)
@@ -119,5 +124,22 @@ namespace Syb_s_Telemetry_Program
             SelectFolder.ShowDialog();
             sessionStarted = true;
         }
+
+        private void ConsoleWindow_TextChanged(object sender, EventArgs e)
+        {
+            var t = ConsoleWindow;
+            if (AutoScrollButton.Checked)
+            {
+                // set the current caret position to the end
+                t.SelectionStart = t.Text.Length;
+                // scroll it automatically
+                t.ScrollToCaret();
+            }
+        }
+    }
+
+    public static class ENV
+    {
+        public static int bautrate = 115200;
     }
 }

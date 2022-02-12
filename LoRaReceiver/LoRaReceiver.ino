@@ -1,4 +1,3 @@
-
 #include <LoRa.h>
 #include "boards.h"
 
@@ -8,11 +7,11 @@ void setup()
     // When the power is turned on, a delay is required.
     delay(1500);
 
-    Serial.println("LoRa Receiver");
+    //Serial.println("LoRa Receiver");
 
     LoRa.setPins(RADIO_CS_PIN, RADIO_RST_PIN, RADIO_DI0_PIN);
     if (!LoRa.begin(LoRa_frequency)) {
-        Serial.println("Starting LoRa failed!");
+        //Serial.println("Starting LoRa failed!");
         while (1);
     }
 }
@@ -23,7 +22,7 @@ void loop()
     int packetSize = LoRa.parsePacket();
     if (packetSize) {
         // received a packet
-        Serial.print("Received packet :");
+        //Serial.print("Received packet :");
 
         String recv = "";
         // read packet
@@ -31,7 +30,10 @@ void loop()
             recv += (char)LoRa.read();
         }
 
-        Serial.println(recv);
+        if (recv != ""){
+          Serial.println(recv);
+          delay(4500);
+        }
 
         // print RSSI of packet
         Serial.print("with RSSI ");

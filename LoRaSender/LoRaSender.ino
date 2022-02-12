@@ -63,11 +63,13 @@ void displayInfo()
     float lat = gps.location.lat();
     float lng = gps.location.lng();
     int sats = gps.satellites.value();
+    double speed = gps.speed.mps();
 
     //Adding GPS location data to JSON Packet
     doc["Lat"] = lat;
     doc["Lng"] = lng;
     doc["Sats"] = sats;
+    doc["Speed"] = speed;
     //Serial Line Debugging
     Serial.print(lat, 6);
     Serial.print(F(","));
